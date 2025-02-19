@@ -1,9 +1,13 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect, MouseEvent } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { ArrowUpTrayIcon, DocumentIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import PreviewPanel from './PreviewPanel';
+
+interface FileUploadProps {
+  onFileChange: (hasFile: boolean) => void;
+}
 
 const ACCEPTED_FILE_TYPES = {
   'application/pdf': ['.pdf'],
@@ -15,11 +19,15 @@ const ACCEPTED_FILE_TYPES = {
 
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10MB
 
-export default function FileUpload() {
+export default function FileUpload({ onFileChange }: FileUploadProps) {
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState<string>('');
   const [isUploading, setIsUploading] = useState(false);
   const [latexCode, setLatexCode] = useState('');
+
+  useEffect(() => {
+    onFileChange(!!file && !!latexCode && !isUploading);
+  }, [file, latexCode, isUploading, onFileChange]);
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const selectedFile = acceptedFiles[0];
@@ -36,12 +44,23 @@ export default function FileUpload() {
     setIsUploading(true);
 
     try {
-      // TODO: Implement actual file upload and conversion
-      // For now, we'll just simulate it with a timeout
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      setLatexCode('\\documentclass{article}\n\\begin{document}\nHello, World!\n\\end{document}');
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+
+      const response = await fetch('/api/convert', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to process file');
+      }
+
+      setLatexCode(data.latex);
     } catch (err) {
-      setError('Failed to process file. Please try again.');
+      setError(err instanceof Error ? err.message : 'Failed to process file. Please try again.');
     } finally {
       setIsUploading(false);
     }
@@ -58,6 +77,11 @@ export default function FileUpload() {
     setFile(null);
     setError('');
     setLatexCode('');
+  };
+
+  const handleRemoveClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    removeFile();
   };
 
   return (
@@ -83,10 +107,7 @@ export default function FileUpload() {
               <span className="text-sm text-gray-600">{file.name}</span>
             </div>
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                removeFile();
-              }}
+              onClick={handleRemoveClick}
               className="p-1 hover:bg-gray-100 rounded-full"
             >
               <XMarkIcon className="h-5 w-5 text-gray-500" />
