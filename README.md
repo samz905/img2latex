@@ -1,10 +1,10 @@
 # LaTeX Converter
 
-A web application that converts documents and images to LaTeX code using AI. Built with Next.js and Supabase.
+A web application that converts images to LaTeX code using AI. Built with Next.js and Supabase.
 
 ## Features
 
-- Upload documents (PDF, DOC, DOCX) and images (PNG, JPG, JPEG)
+- Upload images of any format like PNG, JPG, JPEG
 - AI-powered conversion to LaTeX using Deepseek model via OpenRouter
 - Temporary secure file storage with Supabase
 - Real-time preview of converted LaTeX code
