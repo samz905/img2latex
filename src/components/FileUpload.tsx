@@ -44,19 +44,24 @@ export default function FileUpload({ onFileChange }: FileUploadProps) {
       const formData = new FormData();
       formData.append('file', selectedFile);
 
+      console.log('Uploading file:', selectedFile.name, 'Size:', selectedFile.size);
+      
       const response = await fetch('/api/convert', {
         method: 'POST',
         body: formData,
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to process file');
+        const errorData = await response.json();
+        throw new Error(errorData.error || `Server error: ${response.status}`);
       }
+
+      const data = await response.json();
+      console.log('Upload successful, received response:', data);
 
       setLatexCode(data.latex);
     } catch (err) {
+      console.error('Upload error:', err);
       setError(err instanceof Error ? err.message : 'Failed to process file. Please try again.');
     } finally {
       setIsUploading(false);
