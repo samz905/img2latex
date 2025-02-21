@@ -10,9 +10,6 @@ interface FileUploadProps {
 }
 
 const ACCEPTED_FILE_TYPES = {
-  'application/pdf': ['.pdf'],
-  'application/msword': ['.doc'],
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
   'image/png': ['.png'],
   'image/jpeg': ['.jpg', '.jpeg'],
 };
@@ -121,7 +118,7 @@ export default function FileUpload({ onFileChange }: FileUploadProps) {
                 <span className="text-blue-600">Click to upload</span> or drag and drop
               </p>
               <p className="mt-1 text-sm text-gray-500">
-                PDF, DOC, DOCX, PNG, or JPG (max 10MB)
+                PNG or JPG (max 10MB)
               </p>
             </div>
           </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Doc2LaTeX - Convert Documents to LaTeX",
+  title: "Img2LaTeX - Convert Documents to LaTeX",
   description: "Convert your documents and images into beautifully formatted LaTeX code with ease.",
 };
 

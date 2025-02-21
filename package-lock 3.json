@@ -18,18 +18,18 @@
         "react-dom": "18.2.0",
         "react-dropzone": "^14.3.5",
         "react-latex-next": "^3.0.0",
-        "styled-jsx": "5.1.1"
+        "styled-jsx": "5.1.6"
       },
       "devDependencies": {
         "@tailwindcss/typography": "^0.5.16",
-        "@types/node": "20.11.16",
+        "@types/node": "^20",
         "@types/react": "18.2.0",
         "@types/react-dom": "18.2.0",
-        "autoprefixer": "10.4.14",
+        "autoprefixer": "^10.4.14",
         "eslint": "8.56.0",
         "eslint-config-next": "14.1.0",
-        "postcss": "8.4.24",
-        "tailwindcss": "3.3.2",
+        "postcss": "^8.4.24",
+        "tailwindcss": "^3.3.2",
         "typescript": "5.0.4"
       }
     },
@@ -567,11 +567,11 @@
       "dev": true
     },
     "node_modules/@types/node": {
-      "version": "20.11.16",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-20.11.16.tgz",
-      "integrity": "sha512-gKb0enTmRCzXSSUJDq6/sPcqrfCv2mkkG6Jt/clpn5eiCbKTY+SgZUxo+p8ZKMof5dCp9vHQUAB7wOUTod22wQ==",
+      "version": "20.17.19",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-20.17.19.tgz",
+      "integrity": "sha512-LEwC7o1ifqg/6r2gn9Dns0f1rhK+fPFDoMiceTJ6kWmVk6bgXBI/9IOWfVan4WiAavK9pIVWdX0/e3J+eEUh5A==",
       "dependencies": {
-        "undici-types": "~5.26.4"
+        "undici-types": "~6.19.2"
       }
     },
     "node_modules/@types/phoenix": {
@@ -3583,6 +3583,28 @@
         "node": "^10 || ^12 || >=14"
       }
     },
+    "node_modules/next/node_modules/styled-jsx": {
+      "version": "5.1.1",
+      "resolved": "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz",
+      "integrity": "sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==",
+      "dependencies": {
+        "client-only": "0.0.1"
+      },
+      "engines": {
+        "node": ">= 12.0.0"
+      },
+      "peerDependencies": {
+        "react": ">= 16.8.0 || 17.x.x || ^18.0.0-0"
+      },
+      "peerDependenciesMeta": {
+        "@babel/core": {
+          "optional": true
+        },
+        "babel-plugin-macros": {
+          "optional": true
+        }
+      }
+    },
     "node_modules/node-releases": {
       "version": "2.0.19",
       "resolved": "https://registry.npmjs.org/node-releases/-/node-releases-2.0.19.tgz",
@@ -4857,9 +4879,9 @@
       }
     },
     "node_modules/styled-jsx": {
-      "version": "5.1.1",
-      "resolved": "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.1.tgz",
-      "integrity": "sha512-pW7uC1l4mBZ8ugbiZrcIsiIvVx1UmTfw7UkC3Um2tmfUq9Bhk8IiyEIPl6F8agHgjzku6j0xQEZbfA5uSgSaCw==",
+      "version": "5.1.6",
+      "resolved": "https://registry.npmjs.org/styled-jsx/-/styled-jsx-5.1.6.tgz",
+      "integrity": "sha512-qSVyDTeMotdvQYoHWLNGwRFJHC+i+ZvdBRYosOFgC+Wg1vx4frN2/RG/NA7SYqqvKNLf39P2LSRA2pu6n0XYZA==",
       "dependencies": {
         "client-only": "0.0.1"
       },
@@ -4867,7 +4889,7 @@
         "node": ">= 12.0.0"
       },
       "peerDependencies": {
-        "react": ">= 16.8.0 || 17.x.x || ^18.0.0-0"
+        "react": ">= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0"
       },
       "peerDependenciesMeta": {
         "@babel/core": {
@@ -5244,9 +5266,9 @@
       }
     },
     "node_modules/undici-types": {
-      "version": "5.26.5",
-      "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-5.26.5.tgz",
-      "integrity": "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA=="
+      "version": "6.19.8",
+      "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz",
+      "integrity": "sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw=="
     },
     "node_modules/update-browserslist-db": {
       "version": "1.1.2",
