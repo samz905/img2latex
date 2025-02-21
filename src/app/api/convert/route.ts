@@ -149,18 +149,18 @@ export async function POST(request: Request) {
           'X-Title': 'Img2LaTeX'
         },
         body: JSON.stringify({
-          model: 'anthropic/claude-3-opus-20240229',
+          model: 'meta-llama/llama-3.2-11b-vision-instruct:free',
           messages: [
             {
               role: 'user',
               content: [
                 {
                   type: 'text',
-                  text: 'You are a LaTeX expert. I will provide you with an image containing mathematical equations, text, or diagrams. Your task is to convert it into precise LaTeX code that will reproduce the content exactly as shown. Focus on accuracy and proper LaTeX syntax.'
+                  text: 'Convert this handwritten mathematical equation into LaTeX code. Focus only on the mathematical notation and symbols. Return only the LaTeX code without any explanations. Use proper math mode and ensure accurate transcription of all symbols, subscripts, and superscripts.'
                 },
                 {
                   type: 'text',
-                  text: 'Here is the image to convert:'
+                  text: 'Here is the image:'
                 },
                 {
                   type: 'image_url',
@@ -168,7 +168,8 @@ export async function POST(request: Request) {
                 }
               ]
             }
-          ]
+          ],
+          temperature: 0.3
         })
       });
 
