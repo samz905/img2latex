@@ -9,8 +9,6 @@ A web application that converts images containing mathematical equations to LaTe
 - AI-powered conversion to LaTeX using Deepseek model via OpenRouter
 - Real-time preview of converted LaTeX code with syntax highlighting
 - Temporary secure file storage with Supabase
-- Modern, responsive UI built with TailwindCSS
-- Dark mode support
 - File size limit of 10MB
 
 ## Prerequisites
