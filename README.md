@@ -1,6 +1,7 @@
 # LaTeX Converter
 
-A modern web application that converts images containing mathematical equations to LaTeX code using AI. Built with Next.js and Supabase.
+A web application that converts images containing mathematical equations to LaTeX code using AI. Built with Next.js and Supabase.
+
 
 ## Features
 
